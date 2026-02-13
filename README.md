@@ -1,9 +1,9 @@
-# Pokémon Sprint Name Generator (Public Demo)
+# The Sprint Name Generator (Pokémon-Inspired)
 
 ![Release](https://img.shields.io/github/v/release/akikoiwamizu/pokemon-sprint-generator?sort=semver)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-A public, read-only version of the internal **Pokémon Sprint Name Generator** I built to make sprint planning more engaging for engineering teams.
+A public, read-only version of the internal **Pokémon-inspired sprint naming tool** I built to make sprint planning more engaging for engineering teams.
 
 This demo is designed to be safe to publish: it runs as a static site, loads demo data from JSON, and intentionally disables write operations. Forks can enable persistence by configuring their own Firebase project and rules.
 
@@ -75,7 +75,6 @@ This repo runs as a static site. Demo mode uses PokéAPI plus local JSON data un
 4. **Try it out**
 
    You should see a list of demo teams and a sample sprint history.
-
    - First select a team
    - Click **Generate** to create a new sprint name
    - Attempting a write action will show a read-only alert
@@ -170,7 +169,7 @@ Issues and PRs are welcome!
 
 ## Legal Notice
 
-Pokémon and Pokémon character names are trademarks of Nintendo, Creatures Inc., and Game Freak Inc.
+Pokémon is a registered trademark of Nintendo and The Pokémon Company. This project is not affiliated with or endorsed by Nintendo or The Pokémon Company.
 
 This project is non-commercial and uses data from [PokéAPI](https://pokeapi.co/) for educational and demonstration purposes.
 
