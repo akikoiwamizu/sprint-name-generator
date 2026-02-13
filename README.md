@@ -1,6 +1,6 @@
 # The Sprint Name Generator (Pokémon-Inspired)
 
-![Release](https://img.shields.io/github/v/release/akikoiwamizu/pokemon-sprint-generator?sort=semver)
+![Release](https://img.shields.io/github/v/release/akikoiwamizu/sprint-name-generator?sort=semver)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 A public, read-only version of the internal **Pokémon-inspired sprint naming tool** I built to make sprint planning more engaging for engineering teams.
@@ -22,7 +22,7 @@ In this public demo, teams and sprint history are loaded from local JSON files a
 ## Project Structure
 
 ```
-pokemon-sprint-generator/
+sprint-name-generator/
 ├── public/
 │   ├── data/
 │   │   ├── teams.json
@@ -54,8 +54,8 @@ This repo runs as a static site. Demo mode uses PokéAPI plus local JSON data un
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/akikoiwamizu/pokemon-sprint-generator.git
-   cd pokemon-sprint-generator
+   git clone https://github.com/akikoiwamizu/sprint-name-generator.git
+   cd sprint-name-generator
    ```
 
 2. **Copy the example config**
