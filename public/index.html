@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <link rel="icon" type="image/png" href="favicon.png" />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokémon Sprint Generator</title>
+    <title>The Sprint Name Generator</title>
 
     <!-- Load config.js (contains firebaseConfig and window.demo settings) -->
     <script src="config.js"></script>
@@ -331,7 +331,7 @@
                   pokemon.name
                     .toLowerCase()
                     .includes(manualAddSearch.toLowerCase()) ||
-                  pokemon.id.toString().includes(manualAddSearch)
+                  pokemon.id.toString().includes(manualAddSearch),
               )
               // Users cannot manually select used Pokemon
               .map((pokemon) => ({
@@ -350,7 +350,7 @@
             setLoading(true);
             // Fetch list of all Pokemon (limiting to first 1010 for performance)
             const response = await fetch(
-              "https://pokeapi.co/api/v2/pokemon?limit=1010"
+              "https://pokeapi.co/api/v2/pokemon?limit=1010",
             );
             const data = await response.json();
 
@@ -384,7 +384,7 @@
                     value: s.base_stat,
                   })),
                 };
-              })
+              }),
             );
 
             setAllPokemon(pokemonDetails);
@@ -407,14 +407,14 @@
           // Filter by generation
           if (filters.generation !== "all") {
             filtered = filtered.filter(
-              (p) => p.generation === filters.generation
+              (p) => p.generation === filters.generation,
             );
           }
 
           // Filter by types (if any selected)
           if (filters.types.length > 0) {
             filtered = filtered.filter((p) =>
-              filters.types.some((type) => p.types.includes(type))
+              filters.types.some((type) => p.types.includes(type)),
             );
           }
 
@@ -443,7 +443,7 @@
           }
           if (!db) {
             alert(
-              "Firebase is not enabled. To create teams, enable Firebase in config.js."
+              "Firebase is not enabled. To create teams, enable Firebase in config.js.",
             );
             return;
           }
@@ -470,7 +470,7 @@
           }
           if (!db) {
             alert(
-              "Firebase is not enabled. To delete teams, enable Firebase in config.js."
+              "Firebase is not enabled. To delete teams, enable Firebase in config.js.",
             );
             return;
           }
@@ -491,7 +491,7 @@
           return teams.some(
             (t) =>
               t.id !== excludeTeamId &&
-              normalizeTeamName(t.name || "") === normalized
+              normalizeTeamName(t.name || "") === normalized,
           );
         };
 
@@ -502,7 +502,7 @@
           }
           if (!db) {
             alert(
-              "Firebase is not enabled. To rename teams, enable Firebase in config.js."
+              "Firebase is not enabled. To rename teams, enable Firebase in config.js.",
             );
             return;
           }
@@ -527,7 +527,7 @@
           }
           if (!db) {
             alert(
-              "Firebase is not enabled. To rename teams, enable Firebase in config.js."
+              "Firebase is not enabled. To rename teams, enable Firebase in config.js.",
             );
             return;
           }
@@ -553,11 +553,11 @@
               setRenameError(
                 `Rename failed: Firestore rules blocked this update (permission-denied).${
                   snippet ? ` ${snippet}` : ""
-                }`
+                }`,
               );
             } else {
               setRenameError(
-                `Rename failed: ${err?.message || "unknown error"}`
+                `Rename failed: ${err?.message || "unknown error"}`,
               );
             }
           } finally {
@@ -570,7 +570,7 @@
 
           setIsRevealing(true);
           const randomIndex = Math.floor(
-            Math.random() * filteredPokemon.length
+            Math.random() * filteredPokemon.length,
           );
           const pokemon = filteredPokemon[randomIndex];
 
@@ -588,18 +588,18 @@
         const savePokemonToHistory = async (
           pokemon,
           customDate = null,
-          isManual = false
+          isManual = false,
         ) => {
           if (!window.demo?.allowWrites) {
             console.warn(
-              "This is a read-only demo. Saving Pokémon is disabled."
+              "This is a read-only demo. Saving Pokémon is disabled.",
             );
             return;
           }
 
           if (!db) {
             console.warn(
-              "Firebase is not enabled. Saving Pokémon is disabled."
+              "Firebase is not enabled. Saving Pokémon is disabled.",
             );
             return;
           }
@@ -695,7 +695,7 @@
           <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-6">
             <div className="max-w-7xl mx-auto">
               <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
-                🎮 Pokémon Sprint Generator
+                🎮 The Sprint Name Generator
               </h1>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -770,7 +770,7 @@
                           if (e.detail > 1) return;
                           if (editingTeamId === team.id) return;
                           setSelectedTeam((prev) =>
-                            prev === team.id ? "" : team.id
+                            prev === team.id ? "" : team.id,
                           );
                         }}
                       >
@@ -802,7 +802,7 @@
                                     !(editingTeamName || "").trim() ||
                                     isTeamNameTaken(
                                       (editingTeamName || "").trim(),
-                                      team.id
+                                      team.id,
                                     )
                                   }
                                   className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
@@ -810,11 +810,11 @@
                                     !(editingTeamName || "").trim()
                                       ? "Name is required"
                                       : isTeamNameTaken(
-                                          (editingTeamName || "").trim(),
-                                          team.id
-                                        )
-                                      ? "Name already taken"
-                                      : "Save"
+                                            (editingTeamName || "").trim(),
+                                            team.id,
+                                          )
+                                        ? "Name already taken"
+                                        : "Save"
                                   }
                                 >
                                   {isRenameSaving ? "Saving..." : "Save"}
@@ -838,7 +838,7 @@
                             {editingTeamId === team.id &&
                               (isTeamNameTaken(
                                 (editingTeamName || "").trim(),
-                                team.id
+                                team.id,
                               ) ||
                                 !(editingTeamName || "").trim()) && (
                                 <p className="mt-2 text-xs text-red-600">
@@ -1166,7 +1166,7 @@
                       {
                         allPokemon.filter(
                           (p) =>
-                            !sprintHistory.some((h) => h.pokemonId === p.id)
+                            !sprintHistory.some((h) => h.pokemonId === p.id),
                         ).length
                       }
                     </p>
@@ -1383,7 +1383,7 @@
 
       ReactDOM.render(
         <PokemonSprintGenerator />,
-        document.getElementById("root")
+        document.getElementById("root"),
       );
     </script>
   </body>
