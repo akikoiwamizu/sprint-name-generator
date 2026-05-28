@@ -1,0 +1,14 @@
+{
+  "name": "sprint-name-generator",
+  "version": "1.0.0",
+  "description": "A public, read-only sprint name generator demo.",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --minify",
+    "serve": "cd public && python3 -m http.server 5001"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
