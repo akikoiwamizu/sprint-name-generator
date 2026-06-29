@@ -9,6 +9,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "tailwindcss": "^4.3.1"
+    "tailwindcss": "^4.3.2"
   }
 }
